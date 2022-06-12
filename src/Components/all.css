@@ -1,27 +1,48 @@
-.pageContainer {
-    display: flex;
-}
-.pageContainer > div {
-    border: 1px solid black;
+.box{
+    border:none;
     padding: 5px;
-    text-align: center;
-    margin-right: 10px;
-    cursor: pointer;
+    border-radius: 6px;
+    border: 1px solid black;
 }
-.pageContainer > div:hover {
+
+.sm{
+    width: 20%;
+}
+.md{
+    width: 40%;
+}
+.lg{
+    width: 70%;
+}
+.xl{
+    width: 100%;
+}
+
+.filled:focus{
+    outline: none;
     border: 1px solid blue;
-}
-.active {
-    border: 1px solid blue;
-    background-color: red;
-}
-.flushed{
-    border: none;
-    border-bottom: 1px solid black;
-}
-.outline{
-    border:1px solid black
 }
 .filled{
-    background-color: aqua;
+    background-color: rgb(174, 175, 188);
+}
+.outline:focus{
+    outline: none;
+    border: 1px solid blue;
+}
+.flushed:focus{
+    outline: none;
+    border: none;
+    border-bottom: 1px solid blue;
+}
+
+
+.box1{
+    border: 1px solid red;
+    cursor: pointer;
+    margin: 0px 5px;
+    padding: 5px;
+}
+
+.selected{
+    border: 1px solid blue;
 }

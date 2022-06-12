@@ -1,4 +1,5 @@
-import "./all.css"
+import './all.css';
+
 export const Input = ({
   type,
   size,
@@ -7,21 +8,10 @@ export const Input = ({
   rightLogoOnClick,
   onChange,
 }) => {
-  return (
-    <div className="inputContainer">
-      {/* Add Right Logo */}
-      <input  style={{ position: "absolute" }} 
-          className={`input  ${variant || "flushed"}`}
-          type={type}
-          onChange={onChange}
-      />
-      <img
-        src={rightLogo}
-        alt={"eye"}
-        height={"20px"}
-        onAuxClick={rightLogoOnClick}
-        style={{ position: "relative", left: "140px" }}
-      />
+  return (   
+      <div data-testid="input-cont" className="inputContainer">
+      <input data-testid="input-box" type={type} className={`input box ${size || "md"} ${variant || "outline"}`} />
+      <button data-testid="eye-btn" onClick={rightLogoOnClick}>{rightLogo}</button>
     </div>
   );
 };

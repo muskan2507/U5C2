@@ -1,23 +1,25 @@
-import { fireEvent, render, screen } from "@testing-library/react"
-import { Image } from "../Components/Image"
+import { render, screen } from "@testing-library/react";
+import { Image } from "../Components/Image";
 
-describe("image function",function(){
-    it("should render",function(){
-       render(<Image/>)
-       let img=screen.getByTestId("image")
-       expect(img).toBeInTheDocument();
-
-    })
-    it("should render on height change and width change",function(){
-        render(<Image height={"200px"} width={"200px"} />)
-        let img=screen.getByTestId("image")
-        expect(img).toHaveAttribute("height","200px");
-        expect(img).toHaveAttribute("width","200px");
-     })
-     it("should render on alt change",function(){
-        render(<Image  alt={"photo"} />)
-        let img=screen.getByTestId("image")
-        expect(img).toHaveAttribute("alt","photo");
-     })
-
+describe("Basics of testing",function(){
+  test("Should contain Image Tag",function(){
+    render(<Image/>);
+    const getItem = screen.getByTestId("img-cont");
+    expect(getItem).toBeInTheDocument();
+  })
+  test("Should have some borderRadius",function(){
+    render(<Image borderRadius={200}/>);
+    const getItem = screen.getByTestId("img-tag");
+    expect(getItem).toHaveStyle('border-radius:200px')
+  })
+  test("Should have some width",function(){
+    render(<Image width={500}/>);
+    const getItem = screen.getByTestId("img-tag");
+    expect(getItem).toHaveStyle('width:500px')
+  })
+  test("Should have some height",function(){
+    render(<Image height={500}/>);
+    const getItem = screen.getByTestId("img-tag");
+    expect(getItem).toHaveStyle('height:500px')
+  })
 })

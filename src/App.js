@@ -2,29 +2,20 @@ import { Input } from "./Components/Input";
 import { Image } from "./Components/Image";
 import { Pagination } from "./Components/Pagination";
 import { useState } from "react";
-import eye from "./Components/eye.svg"
+import {FaEye} from "react-icons/fa";
 
 function App() {
-  const [text,setText]=useState("text")
-  const [show,setShow]=useState(false)
-  const onChange=(e)=>{
-    setText(e.target.value)
-    console.log(text)
-  }
-  const rightLogoOnClick=()=>{
-    setShow(!show)
-    console.log(show)
-   if(show){
-     setText("password")
-   }
+  const [t,setT] = useState("password")
+  const changeType = ()=>{
+      setT(t==="password"?"text":"password")
   }
   return (
-    <div className="container">
-      <Input type={text} size={"medium"} onChange={onChange} rightLogoOnClick={rightLogoOnClick} rightLogo={eye} variant={"outline"} />
+    <div data-testid="main-cont" className="container">
+      <Input type={t} size="sm" variant="outline" rightLogo={<FaEye/>} rightLogoOnClick={changeType}/>
 
-      <Image src={"https://avatars.githubusercontent.com/u/98902869?v=4"} alt={"error"} fit={"cover"} height={"100px"} width={"100px"} borderRadius={"100"} />
+      <Image  src="https://avatars.githubusercontent.com/u/98902869?v=4" alt="Avatar" borderRadius={200} width={200} height={200}/>
 
-      <Pagination onPageChange={onChange} selected={1} total={20} />
+      <Pagination total={20} selected={5} />
     </div>
   );
 }
